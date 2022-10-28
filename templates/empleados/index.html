@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Document</title>
 </head>
+
 <body>
-    <p>Hola Flask !</p>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleados %}
+            <tr>
+                <td>{{empleado[0]}}</td>
+                <td>{{empleado[3]}}</td>
+                <td>{{empleado[1]}}</td>
+                <td>{{empleado[2]}}</td>
+                <td>Editar | 
+                    <a href="/destroy/{{empleado[0]}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
 </body>
+
 </html>

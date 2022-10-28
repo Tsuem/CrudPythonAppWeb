@@ -33,9 +33,21 @@ def destroy(id):
     conn = mysql.connect()
     cursor=conn.cursor()
 
-    cursor.execute("DELETE FROM empleados WHERE id= %s",(id))
+    cursor.execute("DELETE FROM empleados WHERE id= %s", (id))
     conn.commit()
     return redirect('/')
+
+@app.route('/edit/<int:id>')
+def edit(id):
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM empleados WHERE id=%s", (id))
+    empleados = cursor.fetchall()
+    conn.commit()
+    print(empleados)
+
+    return render_template('empleados/edit.html', empleados=empleados)
     
 
 @app.route('/create')

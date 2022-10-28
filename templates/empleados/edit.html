@@ -2,8 +2,9 @@ Formulario para editar
 {% for empleado in empleados %}
 
 
-<form method="post" action="/store" enctype="multipart/form-data">
+<form method="post" action="/update" enctype="multipart/form-data">
     <input type="text" value="{{ empleado[0] }}" name="txtID" id="txtID">
+    <br>
     Nombre:
     <input type="text" value="{{ empleado[1] }}" name="txtNombre" id="txtNombre">
     <br>
